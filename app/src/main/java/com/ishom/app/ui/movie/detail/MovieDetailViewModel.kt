@@ -7,6 +7,7 @@ import com.ishom.movie.domain.MovieUseCase
 import com.ishom.movie.domain.model.MovieDetail
 import com.ishom.movie.data.source.repository.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -22,6 +23,7 @@ class MovieDetailViewModel @Inject constructor(
     fun getDetail(id: Int) {
         viewModelScope.launch {
             movieUseCase.getDetail(id).collect {
+                it.data?.isWatchList = watchlistUseCase.isFavorite(id).first()
                 _movieDetail.value = it
             }
         }
