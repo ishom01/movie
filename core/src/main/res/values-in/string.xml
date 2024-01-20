@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home">Daftar Film</string>
+    <string name="watchlist">Daftar Tontonan</string>
+    <string name="movie_detail">Detail Film</string>
+    <string name="now_playing">Sedang dimainkan</string>
+    <string name="popular">Popular</string>
+    <string name="upcoming">Mendatang</string>
+    <string name="search">Cari</string>
+    <string name="search_movie">Cari Film...</string>
+    <string name="back">Kembali</string>
+    <string name="close">Tutup</string>
+    <string name="genres">Daftar Genre</string>
+    <string name="description">Deskripsi</string>
+    <string name="search_not_found">Film tidak ditemukan</string>
+    <string name="watchlist_empty">Mohon tambahkan film favorite untuk memunculkan daftar tontonan</string>
+    <string name="search_empty">Mohon ketik untuk mencari film</string>
+    <string name="language">Ubah Bahasa</string>
+    <string name="hours">Jam</string>
+    <string name="minutes">Menit</string>
+</resources>

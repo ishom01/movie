@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home">Movies</string>
+    <string name="watchlist">Watchlist</string>
+    <string name="movie_detail">Movie Detail</string>
+    <string name="now_playing">Now Playing</string>
+    <string name="popular">Popular</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="search">Search</string>
+    <string name="search_movie">Search Movie...</string>
+    <string name="back">Back</string>
+    <string name="close">Close</string>
+    <string name="hours">Hours</string>
+    <string name="minutes">Minutes</string>
+    <string name="genres">Genres</string>
+    <string name="description">Description</string>
+    <string name="search_not_found">Search not found</string>
+    <string name="watchlist_empty">Please add favorite films to display the watch list</string>
+    <string name="search_empty">Pleas type search for movies</string>
+    <string name="language">Change language</string>
+</resources>

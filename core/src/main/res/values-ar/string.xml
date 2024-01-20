@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home">أفلام</string>
+    <string name="watchlist">قائمة المراقبة</string>
+    <string name="movie_detail">تفاصيل الفيلم</string>
+    <string name="now_playing">الان العب</string>
+    <string name="popular">شائع</string>
+    <string name="upcoming">القادمة</string>
+    <string name="search">يبحث</string>
+    <string name="search_movie">بحث في الفيلم...</string>
+    <string name="back">خلف</string>
+    <string name="close">يغلق</string>
+    <string name="genres">الأنواع</string>
+    <string name="description">وصف</string>
+    <string name="search_not_found">لم يتم العثور على البحث</string>
+    <string name="watchlist_empty">الرجاء إضافة الأفلام المفضلة لعرض قائمة المشاهدة</string>
+    <string name="search_empty">الرجاء كتابة البحث عن الأفلام</string>
+    <string name="language">تغيير اللغة</string>
+    <string name="hours">ساعات</string>
+    <string name="minutes">دقائق</string>
+</resources>

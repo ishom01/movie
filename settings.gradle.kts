@@ -15,5 +15,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "movie"
 include(":app")
-include(":movie")
-include(":watchlist")
+include(":core")
+include(":languange")

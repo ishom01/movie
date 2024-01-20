@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home">Películas</string>
+    <string name="watchlist">Lista de seguimiento</string>
+    <string name="movie_detail">Detalle de la película</string>
+    <string name="now_playing">Jugando ahora</string>
+    <string name="popular">Popular</string>
+    <string name="upcoming">Próxima</string>
+    <string name="search">Buscar</string>
+    <string name="search_movie">Buscar película...</string>
+    <string name="back">Atrás</string>
+    <string name="close">Cerca</string>
+    <string name="genres">Géneros</string>
+    <string name="description">Descripción</string>
+    <string name="search_not_found">Búsqueda no encontrada</string>
+    <string name="watchlist_empty">Agregue películas favoritas para mostrar la lista de observación</string>
+    <string name="search_empty">Por favor escribe buscar películas</string>
+    <string name="language">Cambiar idioma</string>
+    <string name="hours">Horas</string>
+    <string name="minutes">Minutos</string>
+</resources>
