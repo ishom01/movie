@@ -1,5 +1,6 @@
 package com.ishom.movie.di
 
+import com.ishom.movie.data.source.local.sharedPref.SharedPreferences
 import com.ishom.movie.data.source.remote.api.ApiInterface
 import dagger.Module
 import dagger.Provides

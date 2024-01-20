@@ -26,6 +26,7 @@ import coil.compose.AsyncImage
 import com.ishom.app.presentation.UiState
 import com.ishom.app.presentation.ui.template.style.Fonts
 import com.ishom.app.presentation.ui.template.widget.ErrorMessage
+import com.ishom.app.presentation.ui.template.widget.Loading
 import com.ishom.core.R
 import com.ishom.movie.domain.model.Movie
 
@@ -57,10 +58,10 @@ fun MovieVerticalList(
         ) {
             when {
                 state.isError -> item { ErrorMessage(errorMessage = state.message ?:"") }
-                state.isLoading -> item { Spacer(modifier = Modifier.height(58.dp)) }
+                state.isLoading -> item { Loading() }
                 else -> {
-                    state.data?.let { movies ->
-                        if (movies.isEmpty()) {
+                    state.data.let { movies ->
+                        if (movies.isNullOrEmpty()) {
                             item {
                                 Text(
                                     modifier = Modifier.padding(horizontal = 16.dp),

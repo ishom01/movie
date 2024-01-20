@@ -8,6 +8,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import javax.inject.Named
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -21,5 +22,11 @@ object LocalModule {
     @Provides
     fun providePreferences(@ApplicationContext context: Context): SharedPreferences {
         return SharedPreferences(context)
+    }
+
+    @Provides
+    @Named("language-code")
+    fun provideLanguageCode(@ApplicationContext context: Context): String {
+        return SharedPreferences(context).languageCode
     }
 }

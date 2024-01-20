@@ -12,18 +12,21 @@ interface ApiInterface {
     fun getNowPlayingMovies(
         @Query("api_key") apiKey: String,
         @Query("page") page: Int,
+        @Query("language") language: String,
     ): Call<ListMovieResponse>
 
     @GET("movie/popular")
     fun getPopularMovies(
         @Query("api_key") apiKey: String,
         @Query("page") page: Int,
+        @Query("language") language: String,
     ): Call<ListMovieResponse>
 
     @GET("movie/upcoming")
     fun getUpcomingMovies(
         @Query("api_key") apiKey: String,
         @Query("page") page: Int,
+        @Query("language") language: String,
     ): Call<ListMovieResponse>
 
     @GET("search/movie")
@@ -31,11 +34,13 @@ interface ApiInterface {
         @Query("api_key") apiKey: String,
         @Query("query") searchKey: String,
         @Query("page") page: Int,
+        @Query("language") language: String,
     ): Call<ListMovieResponse>
 
     @GET("movie/{id}")
     fun getDetailMovie(
         @Path("id") id: Int,
         @Query("api_key") apiKey: String,
+        @Query("language") language: String,
     ): Call<MovieDetailResponse>
 }

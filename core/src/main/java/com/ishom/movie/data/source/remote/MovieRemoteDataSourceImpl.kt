@@ -14,13 +14,15 @@ import javax.inject.Named
 class MovieRemoteDataSourceImpl @Inject constructor(
     private val apiInterface: ApiInterface,
     @Named("api-key") private val apiKey: String,
+    @Named("language-code") private val languageCode: String,
 ): MovieRemoteDataSource {
     override suspend fun getNowPlayingMovies(page: Int?): Flow<Response<List<MovieResponse>>> {
         return flow {
             try {
                 val response = apiInterface.getNowPlayingMovies(
                     apiKey = apiKey,
-                    page = page ?: 1
+                    page = page ?: 1,
+                    language = languageCode
                 ).execute()
                 emit(Response.Success(response.body()?.results ?: listOf()))
             } catch (e: Exception) {
@@ -34,7 +36,8 @@ class MovieRemoteDataSourceImpl @Inject constructor(
             try {
                 val response = apiInterface.getPopularMovies(
                     apiKey = apiKey,
-                    page = page ?: 1
+                    page = page ?: 1,
+                    language = languageCode
                 ).execute()
                 emit(Response.Success(response.body()?.results ?: listOf()))
             } catch (e: Exception) {
@@ -48,7 +51,8 @@ class MovieRemoteDataSourceImpl @Inject constructor(
             try {
                 val response = apiInterface.getUpcomingMovies(
                     apiKey = apiKey,
-                    page = page ?: 1
+                    page = page ?: 1,
+                    language = languageCode
                 ).execute()
                 emit(Response.Success(response.body()?.results ?: listOf()))
             } catch (e: Exception) {
@@ -66,7 +70,8 @@ class MovieRemoteDataSourceImpl @Inject constructor(
                 val response = apiInterface.getSearchMovies(
                     apiKey = apiKey,
                     searchKey = query,
-                    page = page ?: 1
+                    page = page ?: 1,
+                    language = languageCode
                 ).execute()
                 emit(Response.Success(response.body()?.results ?: listOf()))
             } catch (e: Exception) {
@@ -80,7 +85,8 @@ class MovieRemoteDataSourceImpl @Inject constructor(
             try {
                 val response = apiInterface.getDetailMovie(
                     apiKey = apiKey,
-                    id = id
+                    id = id,
+                    language = languageCode
                 ).execute()
                 response.body()?.let {
                     emit(Response.Success(it))

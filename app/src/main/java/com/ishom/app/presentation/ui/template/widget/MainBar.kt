@@ -225,7 +225,7 @@ fun MainBarRight(
                     )
                 }
                 IconButton(
-                    modifier = Modifier.size(24.dp),
+                    modifier = Modifier.size(24.dp).mirror(),
                     onClick = { onSearchPressed?.invoke() }
                 ) {
                     Icon(
