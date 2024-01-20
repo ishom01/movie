@@ -53,7 +53,8 @@ enum class MainBarType {
 fun MainBar(
     title: String = stringResource(id = R.string.home),
     type: MainBarType = MainBarType.MAIN,
-    isWatchList: Boolean? = false,
+    isFavorite: Boolean? = false,
+    isHasFavoriteModule: Boolean? = false,
     buttonModifier: Modifier = Modifier,
     searchKey: String = "",
     onBackPressed: (() -> Unit)? = null,
@@ -85,7 +86,8 @@ fun MainBar(
         )
         MainBarRight(
             type = type,
-            isWatchList = isWatchList,
+            isFavorite = isFavorite,
+            isHasFavoriteModule = isHasFavoriteModule,
             onLanguagePressed = onLanguagePressed,
             onSelectedFavorite = onSelectedFavorite,
             onSearchPressed = onSearchPressed,
@@ -203,7 +205,8 @@ fun MainBarLeft(
 @Composable
 fun MainBarRight(
     type: MainBarType,
-    isWatchList: Boolean?,
+    isFavorite: Boolean?,
+    isHasFavoriteModule: Boolean? = false,
     onSelectedFavorite: (() -> Unit)? = null,
     onLanguagePressed: (() -> Unit)? = null,
     onSearchPressed: (() -> Unit)? = null,
@@ -238,7 +241,7 @@ fun MainBarRight(
             
         }
         MainBarType.DETAIL -> {
-            isWatchList?.let { isSelected ->
+            if (isHasFavoriteModule == true && isFavorite != null) {
                 IconButton(
                     modifier = Modifier
                         .size(36.dp)
@@ -252,12 +255,12 @@ fun MainBarRight(
                     }
                 ) {
                     Icon(
-                        imageVector = if (isSelected)
+                        imageVector = if (isFavorite)
                             Icons.Filled.Favorite
                         else
                             Icons.Filled.FavoriteBorder,
                         contentDescription = stringResource(id = R.string.watchlist),
-                        tint = if (isSelected) Color.Red else Color.Black
+                        tint = if (isFavorite) Color.Red else Color.Black
                     )
                 }
             }

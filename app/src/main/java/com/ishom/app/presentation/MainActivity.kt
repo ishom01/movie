@@ -19,6 +19,7 @@ import com.ishom.app.presentation.navigation.allBottomNavDestinations
 import com.ishom.app.presentation.navigation.navigateSearch
 import com.ishom.app.presentation.ui.template.widget.BottomNavigation
 import com.ishom.app.presentation.ui.template.widget.MainBar
+import com.ishom.app.presentation.util.getFavoriteModule
 import com.ishom.core.R
 import com.ishom.movie.data.source.local.sharedPref.SharedPreferences
 import dagger.hilt.android.AndroidEntryPoint
@@ -54,6 +55,7 @@ class MainActivity : AppCompatActivity() {
 fun App() {
     val context = LocalContext.current
     val navController = rememberNavController()
+    val isHasFavoriteModule = getFavoriteModule() != null
     Scaffold(
         topBar = {
             val currentDestination = navController.currentBackStackEntryAsState().value
@@ -85,7 +87,7 @@ fun App() {
             }
         },
         bottomBar =  {
-            BottomNavigation(navController)
+            BottomNavigation(navController, isHasFavoriteModule)
         }
     ) {
         MainNavigation(controller = navController)

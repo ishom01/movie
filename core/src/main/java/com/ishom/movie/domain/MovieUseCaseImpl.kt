@@ -26,8 +26,6 @@ class MovieUseCaseImpl @Inject constructor(
 
     override fun getDetail(id: Int): Flow<Resource<MovieDetail>> = movieRepository.getDetail(id)
 
-    override fun getWatchList(): Flow<Resource<List<Movie>>> = watchlistRepository.all()
-
     override suspend fun checkFavorite(movieDetail: MovieDetail) {
         if (movieDetail.isWatchList)
             watchlistRepository.insert(movieDetail)

@@ -15,15 +15,18 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.ishom.app.presentation.navigation.BottomNavDestination
 import com.ishom.app.presentation.navigation.allBottomNavDestinations
+import com.ishom.app.presentation.util.getFavoriteModule
 
 @Composable
 fun BottomNavigation(
-    navController: NavHostController = rememberNavController()
+    navController: NavHostController = rememberNavController(),
+    isHasFavoriteModule: Boolean = false
 ) {
     val currentDestination = navController.currentBackStackEntryAsState().value
     val currentDestinationRoute = currentDestination?.destination?.route
     val isShouldShowBottomNav =
         BottomNavDestination.allBottomNavDestinations.any { it.route == currentDestinationRoute }
+                && isHasFavoriteModule
 
     if (isShouldShowBottomNav) {
         BottomAppBar(

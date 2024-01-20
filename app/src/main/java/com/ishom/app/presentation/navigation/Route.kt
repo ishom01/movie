@@ -28,13 +28,6 @@ val BottomNavDestination.Companion.allBottomNavDestinations get() = buildList {
     add(WatchlistDestination)
 }
 
-val Destination.Companion.allDestinations get() = buildList {
-    add(HomeDestination)
-    add(WatchlistDestination)
-    add(MovieDetailDestination)
-    add(SearchDestination)
-}
-
 object HomeDestination: BottomNavDestination(
     route = PAGE_HOME,
     selectedIcon = R.drawable.ic_movie,

@@ -1,4 +1,4 @@
-package com.ishom.app.presentation.watchlist
+package com.ishom.favorite.presentation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
@@ -9,7 +9,7 @@ import com.ishom.app.presentation.ui.template.widget.movie.PageType
 import com.ishom.movie.domain.model.Movie
 
 @Composable
-fun WatchListScreen(
+fun FavoriteScreen(
     movieState: State<UiState<List<Movie>>>,
     onMovieClicked: ((id: Int) -> Unit)
 ) {

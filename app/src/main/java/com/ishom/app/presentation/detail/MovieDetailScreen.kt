@@ -30,6 +30,7 @@ import com.ishom.app.presentation.ui.template.widget.Loading
 import com.ishom.app.presentation.ui.template.widget.MainBar
 import com.ishom.app.presentation.ui.template.widget.MainBarType
 import com.ishom.app.presentation.ui.template.widget.movie.MovieDetailContent
+import com.ishom.app.presentation.util.getFavoriteModule
 import com.ishom.core.R
 import com.ishom.movie.data.source.Resource
 import com.ishom.movie.domain.model.MovieDetail
@@ -38,6 +39,7 @@ import com.ishom.movie.domain.model.MovieDetail
 @Composable
 fun MovieDetailScreen(
     state: State<Resource<MovieDetail>?>,
+    isHasFavoriteModule: Boolean  = false,
     onBackPressed: (() -> Unit)? = null,
     onSelectedFavorite: (() -> Unit)? = null,
 ) {
@@ -50,7 +52,8 @@ fun MovieDetailScreen(
             MainBar(
                 title = if (isTablet) stringResource(id = R.string.movie_detail) else "",
                 type = MainBarType.DETAIL,
-                isWatchList = state.value?.data?.isWatchList,
+                isFavorite = state.value?.data?.isWatchList,
+                isHasFavoriteModule = isHasFavoriteModule,
                 buttonModifier = Modifier
                     .size(36.dp)
                     .background(

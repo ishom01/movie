@@ -17,3 +17,4 @@ rootProject.name = "movie"
 include(":app")
 include(":core")
 include(":languange")
+include(":favorite")

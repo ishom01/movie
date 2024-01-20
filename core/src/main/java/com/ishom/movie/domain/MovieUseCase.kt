@@ -11,7 +11,6 @@ interface MovieUseCase {
     fun getUpcoming(page: Int? = null): Flow<Resource<List<Movie>>>
     fun getSearchMovie(query: String, page: Int? = null): Flow<Resource<List<Movie>>>
     fun getDetail(id: Int): Flow<Resource<MovieDetail>>
-    fun getWatchList(): Flow<Resource<List<Movie>>>
 
     suspend fun checkFavorite(movieDetail: MovieDetail)
 }
