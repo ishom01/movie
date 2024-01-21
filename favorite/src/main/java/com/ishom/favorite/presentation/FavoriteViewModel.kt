@@ -1,4 +1,4 @@
-package com.ishom.app.presentation.watchlist
+package com.ishom.favorite.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

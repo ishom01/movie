@@ -3,7 +3,6 @@ package com.ishom.app.presentation.navigation
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.State
 import androidx.compose.runtime.currentComposer
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
@@ -16,7 +15,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.ishom.app.presentation.UiState
 import com.ishom.app.presentation.detail.MovieDetailScreen
 import com.ishom.app.presentation.detail.MovieDetailViewModel
 import com.ishom.app.presentation.list.MovieListScreen
@@ -24,8 +22,6 @@ import com.ishom.app.presentation.list.MovieListViewModel
 import com.ishom.app.presentation.search.MovieSearchScreen
 import com.ishom.app.presentation.search.MovieSearchViewModel
 import com.ishom.app.presentation.util.getFavoriteModule
-import com.ishom.app.presentation.watchlist.FavoriteViewModel
-import com.ishom.movie.domain.model.Movie
 import java.lang.reflect.Method
 
 @Composable
@@ -53,10 +49,8 @@ fun MainNavigation(
         composable(
             route = WatchlistDestination.route
         ) {
-            val viewModel: FavoriteViewModel = hiltViewModel()
             CheckFavoriteFeatureExist(
                 method = favoriteMethod,
-                movieState = viewModel.favoriteState.collectAsStateWithLifecycle(),
                 onMovieClicked = {
                     controller.navigateMovieDetail(it)
                 }
@@ -106,12 +100,11 @@ fun MainNavigation(
 @Composable
 fun CheckFavoriteFeatureExist(
     method: Method? = null,
-    movieState: State<UiState<List<Movie>>>,
     onMovieClicked: ((id: Int) -> Unit),
 ) {
     if (method != null) {
         method.isAccessible = true
-        method.invoke(null, movieState, onMovieClicked, currentComposer, 0)
+        method.invoke(null, onMovieClicked, currentComposer, 0)
     }
     else {
         Text(
